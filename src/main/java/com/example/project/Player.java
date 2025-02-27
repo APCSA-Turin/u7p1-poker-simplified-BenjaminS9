@@ -16,21 +16,41 @@ public class Player{
     public ArrayList<Card> getAllCards(){return allCards;}
 
     public void addCard(Card c){
-        
+        hand.add(c);
     }
 
     public String playHand(ArrayList<Card> communityCards){      
-        return "Nothing";
+
     }
 
-    public void SortCards(){} 
+    public void SortCards(){Arrays.sort(allCards);} //I learned this from https://www.geeksforgeeks.org/arrays-sort-in-java-with-examples/
 
     public ArrayList<Integer> findRankingFrequency(){
-        return new ArrayList<>(); 
+        ArrayList<Integer> rankFrequency = new ArrayList<Integer>();
+        for (int i = 0; i < Utility.getRanks().length; i++) {
+            int count = 0;
+            for (Card card : allCards) {
+                if (card.getRank().equals(Utility.getRanks()[i])) {
+                    count++;
+                }
+            }
+            rankFrequency.set(i, count);
+        }
+        return rankFrequency;
     }
 
     public ArrayList<Integer> findSuitFrequency(){
-        return new ArrayList<>(); 
+        ArrayList<Integer> suitFrequency = new ArrayList<Integer>();
+        for (int i = 0; i < Utility.getSuits().length; i++) {
+            int count = 0;
+            for (Card card : allCards) {
+                if (card.getSuit().equals(Utility.getSuits()[i])) {
+                    count++;
+                }
+            }
+            suitFrequency.set(i, count);
+        }
+        return suitFrequency;
     }
 
    
