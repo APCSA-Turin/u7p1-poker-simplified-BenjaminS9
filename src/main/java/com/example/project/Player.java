@@ -23,7 +23,7 @@ public class Player{
 
     }
 
-    public void SortCards(){Arrays.sort(allCards);} //I learned this from https://www.geeksforgeeks.org/arrays-sort-in-java-with-examples/
+    public void sortAllCards(){}
 
     public ArrayList<Integer> findRankingFrequency(){
         ArrayList<Integer> rankFrequency = new ArrayList<Integer>();
