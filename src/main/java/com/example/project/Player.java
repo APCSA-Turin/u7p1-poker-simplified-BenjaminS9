@@ -20,7 +20,7 @@ public class Player{
     }
 
     public String playHand(ArrayList<Card> communityCards){      
-
+        allCards.add(hand);
     }
 
     public void sortAllCards(){}
