@@ -169,13 +169,13 @@ public class Player{
 
     public boolean isTwoPair() {
         ArrayList<Integer> rankFreq = findRankingFrequency();
-        int count = 0;
+        int pairCount = 0;
         for (int freq : rankFreq) {
             if (freq == 2) {
-                count++;
+                pairCount++;
             }
         }
-        if (count == 2) {
+        if (pairCount == 2) {
             return true;
         }
         return false;
@@ -193,10 +193,19 @@ public class Player{
     }
 
     public boolean isHigh() {
+        boolean isHigh = false;
         String high = allCards.get(0).getRank();
         for (int i = 1; i < allCards.size(); i++) {
-            
+            if (Utility.getRankValue(allCards.get(i).getRank()) > Utility.getRankValue(high)) {
+                high = allCards.get(i).getRank();
+            }
         }
+        for (Card card : hand) {
+            if (card.getRank().equals(high)) {
+                isHigh = true;
+            }
+        }
+        return isHigh;
     }
 
     public static void main(String[] args) {

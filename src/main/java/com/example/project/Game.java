@@ -11,7 +11,20 @@ public class Game{
         } else if (p2Value > p1Value) {
             return "Player 2 wins!";
         } else {
-            return "Tie!";
+            int p1Highest = 0;
+            for (Card card : p1.getHand()) {
+                if (p1Highest < Utility.getRankValue(card.getRank())) {
+                    p1Highest = Utility.getRankValue(card.getRank());
+                }
+            }
+            for (Card card : p2.getHand()) {
+                if (Utility.getRankValue(card.getRank()) > p1Highest) {
+                    return "Player 2 wins!";
+                } else if (Utility.getRankValue(card.getRank()) == p1Highest) {
+                    return "Tie!";
+                }
+            }
+            return "Player 1 wins!";
         }
     }
 
