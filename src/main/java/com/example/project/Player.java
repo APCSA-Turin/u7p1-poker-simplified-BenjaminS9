@@ -19,6 +19,15 @@ public class Player{
         hand.add(c);
     }
 
+    public void removeAllCards(){ //removes all cards from the hand and all cards(for extra credit part)
+        for (int i = hand.size() - 1; i >= 0; i--) {
+            hand.remove(i);
+        }
+        for (int i = allCards.size() - 1; i >= 0; i--) {
+            allCards.remove(i);
+        }
+    }
+
     public String playHand(ArrayList<Card> communityCards){ 
         if (allCards.size() < 5) { //makes sure allCards isn't already filled with 5 cards
             for (Card card : hand) { //adds all cards from hand to allCards
@@ -171,7 +180,7 @@ public class Player{
         ArrayList<Integer> rankFreq = findRankingFrequency();
         int pairCount = 0;
         for (int freq : rankFreq) {
-            if (freq == 2) { //checkes if any rank appears exactly twice
+            if (freq == 2) { //checks if any rank appears exactly twice
                 pairCount++;
             }
         }

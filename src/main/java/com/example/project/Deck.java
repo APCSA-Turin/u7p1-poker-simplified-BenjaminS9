@@ -16,8 +16,8 @@ public class Deck{
     }
 
     public  void initializeDeck(){ //hint.. use the utility class
-        for (String suit : Utility.getSuits()) {
-            for (String rank : Utility.getRanks()) {
+        for (String suit : Utility.getSuits()) { //for each suit
+            for (String rank : Utility.getRanks()) { //each rank is added for that suit
                 cards.add(new Card(rank, suit));
             }
         }
@@ -28,13 +28,15 @@ public class Deck{
     }
 
     public  Card drawCard(){
-        if (isEmpty()) {
-            return cards.remove(0);
+        if (!isEmpty()) { //first checks if there are cards left to be drawn in the deck
+            Card draw = cards.get(0);
+            cards.remove(0); //removes the top card of the deck
+            return draw; //returns the card that was removed
         }
         return null;
     }
 
-    public  boolean isEmpty(){
+    public  boolean isEmpty(){ //checks if there is at least one element in deck
         if (cards.size() < 1) {
             return true;
         }
