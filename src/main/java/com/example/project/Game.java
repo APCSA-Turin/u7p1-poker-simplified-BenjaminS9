@@ -66,10 +66,10 @@ public class Game{
                 p2.removeAllCards(); //removes cards from player 2's hand
 
                 System.out.println("---------------------------------------------------");
-                System.out.print("Type start to start the next round: "); //prompts user to start next round
+                System.out.print("Type start to start the next round or q to quit: "); //prompts user to start next round
                 response = scan.nextLine();
             }
-            System.out.println("Game over! You ran out of cards in the deck or you have stopped the game.");
+            System.out.println("Game over! You have stopped the game.");
         }
     }
         
